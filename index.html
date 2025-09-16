@@ -81,22 +81,23 @@
   <main class="main">
 
     <!-- Hero Section -->
-     
     <section id="hero" class="hero section">
-      <div style="text-align: center">
- 　　　　<img src="assets/img/portfolio.png">
-　　　　</div>
- 　　　　<div class="wrapper">
-         <!-- 花を3つ -->
-         <div class="decoration greenflower" data-aos="fade-in" data-aos-delay="100"></div>
-         <div class="decoration pinkflower" data-aos="fade-in" data-aos-delay="200"></div>
-         <div class="decoration orangeflower" data-aos="fade-in" data-aos-delay="300"></div>
-      </div>
-      <div class="container d-flex flex-column align-items-center justify-content-center text-center" data-aos="fade-up" data-aos-delay="100">
-        <p><span class="typed" data-typed-items="Moe Nakamura"></span></p>
-      </div>
+      <div class="wrapper">
+        <!-- TOP画像（中央配置・CSSでサイズ調整） -->
+        <img src="assets/img/portfolio.png" alt="Portfolio cover" data-aos="fade-in">
 
-    </section><!-- /Hero Section -->
+        <!-- 背景の飾り花（CSSで位置とサイズを制御） -->
+        <div class="decoration greenflower" data-aos="fade-in" data-aos-delay="100"></div>
+        <div class="decoration pinkflower" data-aos="fade-in" data-aos-delay="200"></div>
+        <div class="decoration orangeflower" data-aos="fade-in" data-aos-delay="300"></div>
+
+        <!-- （任意）タイプ文字表示。必要なければこのブロックごと削除可 -->
+        <div class="container d-flex flex-column align-items-center justify-content-center text-center" data-aos="fade-up" data-aos-delay="400">
+          <p><span class="typed" data-typed-items="Moe Nakamura"></span></p>
+        </div>
+      </div>
+    </section>
+    <!-- /Hero Section -->
 
     <!-- About Section -->
     <section id="about" class="about section">
