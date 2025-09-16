@@ -672,40 +672,45 @@ section,
 }
 
 /* 花の共通設定：必ず絶対配置にして背景画像を表示 */
+/* 花の共通設定：必ず絶対配置にして背景画像を表示 */
 .decoration {
-  position: absolute;      /* ← これがないと花が出ても動かない */
+  position: absolute;                 /* ステージ上に重ねる */
   background-repeat: no-repeat;
   background-size: contain;
-  z-index: 1;              /* 画像(#hero img)より下 */
+  width: 8vw;                         /* 0x0回避のためのデフォルト */
+  height: 8vw;
+  z-index: 1;                         /* 画像(#hero img)より下 */
   pointer-events: none;
+  /* 画像が無くても見えるフェールセーフの丸 */
+  background-image: radial-gradient(circle at 50% 50%, rgba(255,192,203,0.7), rgba(255,192,203,0.2) 60%, transparent 61%);
 }
 
 /* 花1 */
 .greenflower {
-  background-image: url("assets/img/greenflower.png");
-  top: 8%;
+  top: 10%;
   left: 8%;
-  width: 8vw;
-  height: 8vw;
+  width: 9vw;
+  height: 9vw;
+  background-image: url("assets/img/greenflower.png"), radial-gradient(circle at 50% 50%, rgba(144,238,144,0.7), rgba(144,238,144,0.2) 60%, transparent 61%);
 }
 
 /* 花2 */
 .pinkflower {
-  background-image: url("assets/img/pinkflower.png");
-  top: 12%;
+  top: 14%;
   left: 42%;
-  width: 10vw;
-  height: 10vw;
+  width: 11vw;
+  height: 11vw;
+  background-image: url("assets/img/pinkflower.png"), radial-gradient(circle at 50% 50%, rgba(255,192,203,0.7), rgba(255,192,203,0.2) 60%, transparent 61%);
 }
 
-/* 花3（旧名もあるので両方用意しておく） */
+/* 花3（旧名も拾う） */
 .orangefrower,
 .orangeflower {
-  background-image: url("assets/img/orangeflower.png");
-  top: 10%;
+  top: 12%;
   right: 10%;
-  width: 7vw;
-  height: 7vw;
+  width: 8vw;
+  height: 8vw;
+  background-image: url("assets/img/orangeflower.png"), radial-gradient(circle at 50% 50%, rgba(255,165,0,0.7), rgba(255,165,0,0.2) 60%, transparent 61%);
 }
 
 /* 画像の中央寄せ＋縦の余白を少しタイトに */
@@ -1703,13 +1708,4 @@ section,
 /*============ Custom spacing tweak ============*/
 #about.section {
   padding-top: 32px !important;
-}
-/* ===== Debug helpers: remove later ===== */
-.decoration {
-  outline: 1px dashed rgba(0,0,0,0.25);      /* 可視化用の枠線 */
-  background-color: rgba(255,0,0,0.06);       /* 画像が無いときに薄く赤で見える */
-}
-/* 背景の散りばめが効いているかのテスト用（軽い色） */
-.wrapper::before { 
-  background-color: transparent;              /* 透明のまま */
 }
