@@ -666,51 +666,61 @@ section,
 --------------------------------------------------------------*/
 .wrapper {
   position: relative;
-  height: 100vh;
-  background: #fff;
+  height: auto;            /* ← これで100vhを解除 */
+  min-height: 64vh;        /* 余白が大きければ 56vh / 48vh に下げてもOK */
+  background: transparent; /* ← 白背景をやめる */
 }
 
+/* 花の共通設定：必ず絶対配置にして背景画像を表示 */
 .decoration {
-  z-index: 10;
-  position: absolute;
-  background-size: contain;
+  position: absolute;      /* ← これがないと花が出ても動かない */
   background-repeat: no-repeat;
+  background-size: contain;
+  z-index: 1;              /* 画像(#hero img)より下 */
+  pointer-events: none;
 }
 
 /* 花1 */
 .greenflower {
   background-image: url("assets/img/greenflower.png");
-  top: 5%;
+  top: 8%;
   left: 8%;
-  width: 7vw;
-  height: 7vw;
+  width: 8vw;
+  height: 8vw;
 }
 
 /* 花2 */
 .pinkflower {
   background-image: url("assets/img/pinkflower.png");
-  top: 15%;
-  left: 45%;
-  width: 9vw;
-  height: 9vw;
+  top: 12%;
+  left: 42%;
+  width: 10vw;
+  height: 10vw;
 }
 
-/* 花3 */
-.orangefrower {
-  background-image: url("assets/img/orangeflower.png");
-  top: 15%;
-  right: 12%;
-  width: 6vw;
-  height: 6vw;
-}
-/* Corrected class name for orange flower */
+/* 花3（旧名もあるので両方用意しておく） */
+.orangefrower,
 .orangeflower {
   background-image: url("assets/img/orangeflower.png");
-  top: 15%;
-  right: 12%;
-  width: 6vw;
-  height: 6vw;
+  top: 10%;
+  right: 10%;
+  width: 7vw;
+  height: 7vw;
 }
+
+/* 画像の中央寄せ＋縦の余白を少しタイトに */
+#hero img {
+  display: block;
+  position: relative;
+  z-index: 2;
+  margin: 6vh auto 2vh;         /* 上下の余白をタイトに */
+  max-width: min(80vw, 680px);  /* 大きさはここで調整 720/800にしてもOK */
+  height: auto;
+  opacity: 1 !important;
+  filter: none !important;
+  mix-blend-mode: normal !important;
+}
+
 
 .hero:before {
   display: none !important; 
@@ -732,26 +742,8 @@ section,
   z-index: 3;
 }
 
-/* Center the TOP image and ensure it sits above background flowers */
-#hero img {
-  display: block;
-  position: relative;
-  z-index: 2;
-  margin: 8vh auto 4vh;           /* center + nice top/bottom breathing room */
-  max-width: min(80vw, 680px);    /* responsive but not too huge */
-  height: auto;
-}
 
-/* Make wrapper a proper stage and push flowers behind the image */
-.wrapper {
-  position: relative;
-  min-height: 80vh;               /* keep a good hero height */
-}
 
-.decoration {
-  z-index: 1;                     /* behind the image */
-  pointer-events: none;           /* avoid accidental clicks */
-}
 
 /* Extra scattered flowers as background images (no HTML changes needed) */
 .wrapper::before {
