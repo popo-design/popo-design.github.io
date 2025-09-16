@@ -697,7 +697,7 @@ section,
 
 /* 花3 */
 .orangefrower {
-  background-image: url("img/orangeflower.png");
+  background-image: url("assets/img/orangeflower.png");
   top: 15%;
   right: 12%;
   width: 6vw;
@@ -730,6 +730,60 @@ section,
 .hero .container {
   position: relative;
   z-index: 3;
+}
+
+/* Center the TOP image and ensure it sits above background flowers */
+#hero img {
+  display: block;
+  position: relative;
+  z-index: 2;
+  margin: 8vh auto 4vh;           /* center + nice top/bottom breathing room */
+  max-width: min(80vw, 680px);    /* responsive but not too huge */
+  height: auto;
+}
+
+/* Make wrapper a proper stage and push flowers behind the image */
+.wrapper {
+  position: relative;
+  min-height: 80vh;               /* keep a good hero height */
+}
+
+.decoration {
+  z-index: 1;                     /* behind the image */
+  pointer-events: none;           /* avoid accidental clicks */
+}
+
+/* Extra scattered flowers as background images (no HTML changes needed) */
+.wrapper::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  background-repeat: no-repeat;
+  background-image:
+    url("assets/img/greenflower.png"),
+    url("assets/img/pinkflower.png"),
+    url("assets/img/orangeflower.png"),
+    url("assets/img/pinkflower.png"),
+    url("assets/img/greenflower.png"),
+    url("assets/img/orangeflower.png");
+  /* positions:   top-left, mid-left, top-right, bottom-left, bottom-right, bottom-center */
+  background-position:
+    left 6%  top 10%,
+    40% 14%,
+    right 8% top 12%,
+    left 10% bottom 22%,
+    right 12% bottom 18%,
+    50% 86%;
+  background-size:
+    7vw,
+    9vw,
+    6vw,
+    5vw,
+    7vw,
+    6vw;
+  opacity: 0.9;                    /* slightly subtle */
 }
 
 
