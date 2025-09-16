@@ -1704,3 +1704,12 @@ section,
 #about.section {
   padding-top: 32px !important;
 }
+/* ===== Debug helpers: remove later ===== */
+.decoration {
+  outline: 1px dashed rgba(0,0,0,0.25);      /* 可視化用の枠線 */
+  background-color: rgba(255,0,0,0.06);       /* 画像が無いときに薄く赤で見える */
+}
+/* 背景の散りばめが効いているかのテスト用（軽い色） */
+.wrapper::before { 
+  background-color: transparent;              /* 透明のまま */
+}
