@@ -677,6 +677,7 @@ section,
   position: absolute;                 /* ステージ上に重ねる */
   background-repeat: no-repeat;
   background-size: contain;
+  background-position: center;
   width: 8vw;                         /* 0x0回避のためのデフォルト */
   height: 8vw;
   z-index: 1;                         /* 画像(#hero img)より下 */
