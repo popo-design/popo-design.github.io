@@ -705,6 +705,7 @@ section,
 }
 
 .hero:before {
+  display: none; 
   content: "";
   background: color-mix(in srgb, var(--background-color), transparent 30%);
   position: absolute;
